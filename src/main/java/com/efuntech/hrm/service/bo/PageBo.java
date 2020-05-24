@@ -12,15 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 public class PageBo {
 
-
-
     private Integer currentPage;
     private Integer totalPages;
     private Long totalRecords;
     private Integer pageSize = 10;
     private List<? extends BaseBo> list;
 
-    public static PageBo valueOf(Page<?> page) {
+    public static PageBo valueOf(Page<?> page, List<? extends BaseBo> list) {
         if (page == null || !page.hasContent()) {
             return empty();
         }
@@ -30,6 +28,7 @@ public class PageBo {
                 .totalPages(page.getTotalPages())
                 .totalRecords(page.getTotalElements())
                 .pageSize(page.getSize())
+                .list(list)
                 .build();
     }
 

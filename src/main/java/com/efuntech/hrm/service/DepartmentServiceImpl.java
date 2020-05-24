@@ -1,7 +1,8 @@
 package com.efuntech.hrm.service;
 
-import com.efuntech.hrm.controller.dto.req.EmployeeReqDto;
+import com.efuntech.hrm.controller.dto.req.DepartmentReqDto;
 import com.efuntech.hrm.dao.DepartmentDaoImpl;
+import com.efuntech.hrm.service.bo.DepartmentBo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +15,19 @@ public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentDaoImpl departmentDao;
 
     @Override
-    public Optional<Long> add(EmployeeReqDto employeeReqDto) {
-        return Optional.empty();
+    public Optional<Long> add(DepartmentReqDto departmentReqDto) {
+        DepartmentBo departmentBo = DepartmentBo.valueOf(departmentReqDto);
+        return departmentDao.add(departmentBo);
     }
 
     @Override
-    public Optional<Long> update(EmployeeReqDto employeeReqDto) {
-        return Optional.empty();
+    public Optional<Long> update(DepartmentReqDto departmentReqDto) {
+        DepartmentBo departmentBo = DepartmentBo.valueOf(departmentReqDto);
+        return departmentDao.update(departmentBo);
     }
 
     @Override
     public boolean delete(Long id) {
-        return false;
+        return departmentDao.delete(id);
     }
 }

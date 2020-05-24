@@ -1,6 +1,7 @@
 package com.efuntech.hrm.service.bo;
 
 import com.efuntech.hrm.entity.Base;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseBo {
 
     private Long id;

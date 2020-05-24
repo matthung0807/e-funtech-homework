@@ -15,19 +15,22 @@ public class DepartmentController {
 
     @PostMapping("/add")
     public ResponseDto add(@RequestBody DepartmentReqDto departmentReqDto) {
-
-        return null;
+        return departmentService.add(departmentReqDto)
+                .map(ResponseDto::success)
+                .orElse(ResponseDto.fail());
     }
 
     @PutMapping("/update")
     public ResponseDto update(@RequestBody DepartmentReqDto departmentReqDto) {
-
-        return null;
+        return departmentService.update(departmentReqDto)
+                .map(ResponseDto::success)
+                .orElse(ResponseDto.fail());
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseDto delete(@PathVariable Long id) {
-
-        return null;
+        return departmentService.delete(id) ?
+                ResponseDto.success() :
+                ResponseDto.fail();
     }
 }

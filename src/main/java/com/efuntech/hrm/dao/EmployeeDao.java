@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface EmployeeDao {
 
-    Page<Employee> get(EmployeeBo employeeBo);
+    Page<Employee> find(EmployeeBo employeeBo, int page);
 
     Optional<Long> add(EmployeeBo employeeBo);
 

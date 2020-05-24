@@ -13,7 +13,7 @@ public class PageDto {
     private Integer currentPage;
     private Integer totalPages;
     private Long totalRecords;
-    private Integer pageSize = 10;
+    private Integer pageSize;
 
     public static PageDto valueOf(PageBo pageBo) {
         if (pageBo == null || pageBo.getList() == null || pageBo.getList().size() == 0) {
@@ -33,6 +33,7 @@ public class PageDto {
                 .currentPage(0)
                 .totalPages(0)
                 .totalRecords(0L)
+                .pageSize(10)
                 .build();
     }
 

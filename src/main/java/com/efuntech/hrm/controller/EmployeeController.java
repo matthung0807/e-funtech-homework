@@ -20,27 +20,28 @@ public class EmployeeController {
 
     @GetMapping("/get")
     public ResponseDto get(@RequestBody EmployeeReqDto employeeReqDto) {
-
-        return null;
+        return ResponseDto.success(employeeService.get(employeeReqDto));
     }
-
 
     @PostMapping("/add")
     public ResponseDto add(@RequestBody EmployeeReqDto employeeReqDto) {
-
-        return null;
+        return employeeService.add(employeeReqDto)
+                .map(ResponseDto::success)
+                .orElse(ResponseDto.fail());
     }
 
     @PutMapping("/update")
     public ResponseDto update(@RequestBody EmployeeReqDto employeeReqDto) {
-
-        return null;
+        return employeeService.update(employeeReqDto)
+                .map(ResponseDto::success)
+                .orElse(ResponseDto.fail());
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseDto delete(@PathVariable Long id) {
-
-        return null;
+        return employeeService.delete(id) ?
+                ResponseDto.success() :
+                ResponseDto.fail();
     }
 
 }

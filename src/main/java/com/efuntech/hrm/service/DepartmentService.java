@@ -1,14 +1,14 @@
 package com.efuntech.hrm.service;
 
-import com.efuntech.hrm.controller.dto.req.EmployeeReqDto;
+import com.efuntech.hrm.controller.dto.req.DepartmentReqDto;
 
 import java.util.Optional;
 
 public interface DepartmentService {
 
-    Optional<Long> add(EmployeeReqDto employeeReqDto);
+    Optional<Long> add(DepartmentReqDto departmentReqDto);
 
-    Optional<Long> update(EmployeeReqDto employeeReqDto);
+    Optional<Long> update(DepartmentReqDto departmentReqDto);
 
     boolean delete(Long id);
 }

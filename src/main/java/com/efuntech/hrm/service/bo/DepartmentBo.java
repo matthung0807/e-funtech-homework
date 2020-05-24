@@ -1,5 +1,6 @@
 package com.efuntech.hrm.service.bo;
 
+import com.efuntech.hrm.controller.dto.req.DepartmentReqDto;
 import com.efuntech.hrm.entity.Department;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,12 @@ public class DepartmentBo extends BaseBo {
         departmentBo.setModifier(department);
 
         return departmentBo;
+    }
+
+    public static DepartmentBo valueOf(DepartmentReqDto departmentReqDto) {
+        return DepartmentBo.builder()
+                .name(departmentReqDto.getName())
+                .build();
     }
 
 }
